@@ -6,12 +6,11 @@ namespace blatt1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            ggt(32, 33);
-            ggt(32, 33, 0);
+            ggt(21, 33);
+            ggtRecursive(21, 33);
         }
 
-        public void ggt(int a, int b)
+        public static void ggt(int a, int b)
         {
             int r = 0;
 
@@ -22,10 +21,10 @@ namespace blatt1
                 b = r;
             } while (r != 0);
 
-            Console.WriteLine("Größter gemeinsamer Teiler: " + a);
+            Console.WriteLine("Highest Common Factor (w/ Loop): " + a);
         }
 
-        public static int ggtRecursive(int a, int b, int r)
+        public static int ggtRecursive(int a, int b, int r = 0)
         {
             r = a % b;
             a = b;
@@ -33,7 +32,7 @@ namespace blatt1
 
             if(r == 0)
             {
-                Console.WriteLine("Größter gemeinsamer Teiler: " + a);
+                Console.WriteLine("Highest Common Factor (w/ Recursion): " + a);
                 return a;
             }
             else
