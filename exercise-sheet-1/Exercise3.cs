@@ -7,38 +7,49 @@ namespace exercise_sheet_1
     {
         public Exercise3()
         {
-            Matrix m = new Matrix(3, 2);
+            Matrix m = new Matrix(1000, 1000);
             m.Init();
-            m.Input();
-            /*m.matrix = new int[,]{
-                {1,2,3,4,5,6,7,8},
-                {9,10,11,12,13,14,15,16},
-                {17,18,19,20,21,22,23,24},
-                {25,26,27,28,29,30,31,32}              
-            };*/
+            //m.Input();
 
-            Matrix m1 = new Matrix(2, 3);
+            Matrix m1 = new Matrix(1000, 1000);
             m1.Init();
-            m1.Input();
-            /*m1.matrix = new int[,]{
-                {1,2,3,4},
-                {5,6,7,8},
-                {9,10,11,12},
-                {13,14,15,16},
-                {17,18,19,20}
-            };*/
+            //m1.Input();
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            Matrix r = m.Mult(m1);
-            /*Matrix r = m.Add(m1);*/
+            Matrix r = m.Add(m1);
+            //Matrix r = m.Add(m1);
     
             stopwatch.Stop();
             TimeSpan stopwatchElapsed = stopwatch.Elapsed;
-            Console.WriteLine(Convert.ToInt32(stopwatchElapsed.TotalMilliseconds));
 
-            r.Print();
+            if(r != null) {
+                r.Print();
+
+                Console.WriteLine("Funktion brauchte: " + Convert.ToInt32(stopwatchElapsed.TotalMilliseconds) + " ms");
+            }
+
+            /*
+             * Testwerte:
+             * 100x100 * 100x100 = 57 ms
+             * 100x100 + 100x100 = 1 ms
+             *
+             * 1000x1000 * 1000x1000 = 10996 ms
+             * 1000x1000 + 1000x1000 = 22 ms
+             *
+             * Hochrechnung:
+             * Addition (maximale quadratische Matrixgröße):
+             * - 1 Minute: 2727272
+             * - 2 Minuten: 5454545
+             * - 5 Minuten: 13636363
+             * - 10 Minuten: 27272727
+             * Multiplikation (maximale quadratische Matrixgröße):
+             * - 1 Minute: 5456
+             * - 2 Minuten: 10912
+             * - 5 Minuten: 27280
+             * - 10 Minuten: 54560
+             */
         }
     }
 
@@ -114,7 +125,7 @@ namespace exercise_sheet_1
             if(mLengthN == this.matrix.GetLength(0) &&
                 mLengthM == this.matrix.GetLength(1))
             {
-                int i, j;
+                int i = 0, j = 0, actionsPerformed = 0;
 
                 Matrix result = new Matrix(mLengthM, mLengthN);
                 result.Init();
@@ -126,6 +137,9 @@ namespace exercise_sheet_1
                         result.matrix[i,j] = m.matrix[i,j] + this.matrix[i,j];
                     }
                 }
+
+                actionsPerformed = i * j;
+                Console.WriteLine("Aktionen durchgeführt: " + actionsPerformed);
 
                 return result;
             }
@@ -162,11 +176,9 @@ namespace exercise_sheet_1
 
                         result.matrix[i,j] = summe;
                     }
-    
-                    actionsPerformed = i * j * k;
-
                 }
 
+                actionsPerformed = i * j * k;
                 Console.WriteLine("Aktionen durchgeführt: " + actionsPerformed);
 
                 return result;
