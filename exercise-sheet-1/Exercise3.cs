@@ -5,20 +5,41 @@ namespace exercise_sheet_1
 {
     public class Exercise3
     {
+        /*
+         * Testwerte:
+         * 100x100 * 100x100 = 57 ms
+         * 100x100 + 100x100 = 1 ms
+         *
+         * 1000x1000 * 1000x1000 = 10996 ms
+         * 1000x1000 + 1000x1000 = 22 ms
+         *
+         * Hochrechnung:
+         * Addition (maximale quadratische Matrixgröße):
+         * - 1 Minute: 2727272
+         * - 2 Minuten: 5454545
+         * - 5 Minuten: 13636363
+         * - 10 Minuten: 27272727
+         * Multiplikation (maximale quadratische Matrixgröße):
+         * - 1 Minute: 5456
+         * - 2 Minuten: 10912
+         * - 5 Minuten: 27280
+         * - 10 Minuten: 54560
+         */
+
         public Exercise3()
         {
-            Matrix m = new Matrix(1000, 1000);
+            Matrix m = new Matrix(3, 2);
             m.Init();
-            //m.Input();
+            m.Input();
 
-            Matrix m1 = new Matrix(1000, 1000);
+            Matrix m1 = new Matrix(2, 3);
             m1.Init();
-            //m1.Input();
+            m1.Input();
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            Matrix r = m.Add(m1);
+            Matrix r = m.Mult(m1);
             //Matrix r = m.Add(m1);
     
             stopwatch.Stop();
@@ -29,27 +50,6 @@ namespace exercise_sheet_1
 
                 Console.WriteLine("Funktion brauchte: " + Convert.ToInt32(stopwatchElapsed.TotalMilliseconds) + " ms");
             }
-
-            /*
-             * Testwerte:
-             * 100x100 * 100x100 = 57 ms
-             * 100x100 + 100x100 = 1 ms
-             *
-             * 1000x1000 * 1000x1000 = 10996 ms
-             * 1000x1000 + 1000x1000 = 22 ms
-             *
-             * Hochrechnung:
-             * Addition (maximale quadratische Matrixgröße):
-             * - 1 Minute: 2727272
-             * - 2 Minuten: 5454545
-             * - 5 Minuten: 13636363
-             * - 10 Minuten: 27272727
-             * Multiplikation (maximale quadratische Matrixgröße):
-             * - 1 Minute: 5456
-             * - 2 Minuten: 10912
-             * - 5 Minuten: 27280
-             * - 10 Minuten: 54560
-             */
         }
     }
 
