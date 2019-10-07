@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 namespace exercise_sheet_1
 {
@@ -27,9 +28,16 @@ namespace exercise_sheet_1
                 {17,18,19,20}
             };*/
 
-            /*Matrix r = m.Add(m1);
-            r.Print();*/
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             Matrix r = m.Mult(m1);
+            /*Matrix r = m.Add(m1);*/
+    
+            stopwatch.Stop();
+            TimeSpan stopwatchElapsed = stopwatch.Elapsed;
+            Console.WriteLine(Convert.ToInt32(stopwatchElapsed.TotalMilliseconds));
+
             r.Print();
         }
     }
@@ -127,6 +135,7 @@ namespace exercise_sheet_1
 
         public Matrix Mult(Matrix m)
         {
+
             int mLengthM = m.matrix.GetLength(0);
             int mLengthN = m.matrix.GetLength(1);
             int lengthM = this.matrix.GetLength(0);
@@ -134,7 +143,8 @@ namespace exercise_sheet_1
 
             if(mLengthN == lengthM)
             {
-                int i, j, k, summe;
+                int actionsPerformed = 0;
+                int i = 0, j = 0, k = 0, summe;
 
                 Matrix result = new Matrix(mLengthM, lengthN);
                 result.Init();
@@ -152,7 +162,12 @@ namespace exercise_sheet_1
 
                         result.matrix[i,j] = summe;
                     }
+    
+                    actionsPerformed = i * j * k;
+
                 }
+
+                Console.WriteLine("Aktionen durchgeführt: " + actionsPerformed);
 
                 return result;
             }
