@@ -5,10 +5,10 @@ namespace exercise_sheet_1
     public class Exercise2
     {
         public Exercise2() {
-            eratosthenes(100000);
+            Eratosthenes(100000);
         }
 
-        public void eratosthenes(int k)
+        public void Eratosthenes(int k)
         {
             bool[] prime = new bool[k+1];
             int i = 0;
