@@ -1,0 +1,39 @@
+## Gaußsche Summenformel
+# Input
+INP 1
+
+# (2*n + 1)
+LDK 2
+MUL 1
+STA 2
+LDK 1
+ADD 2
+STA 2
+
+# ERGEBNIS * (n + 1)
+LDK 1
+MUL 2
+STA 4
+
+LDA 1
+MUL 2
+STA 2
+
+LDA 4
+ADD 2
+STA 2
+
+# ERGEBNIS * n
+LDA 1
+MUL 2
+STA 2
+
+# ERGEBNIS / 6
+LDK 6
+STA 3
+LDA 2
+DIV 3
+STA 2
+
+# Beenden
+HLT 99
