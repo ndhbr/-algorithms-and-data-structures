@@ -61,6 +61,9 @@ namespace exercise_sheet_2
                         case "STA":
                             this.stack[operand] = this.stack[0];
                             break;
+                        case "OUT":
+                            Console.WriteLine("Adresse " + operand + ": " + this.stack[operand]);
+                            break;
                         case "HLT":
                             if(operand == 99)
                                 halt = true;

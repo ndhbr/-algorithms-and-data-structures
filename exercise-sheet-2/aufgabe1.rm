@@ -35,5 +35,8 @@ LDA 2
 DIV 3
 STA 2
 
+# Ausgabe
+OUT 2
+
 # Beenden
 HLT 99
