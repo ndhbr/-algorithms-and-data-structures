@@ -3,38 +3,38 @@ using System;
 
 namespace exercise_sheet_6
 {
-    public class ListElement<T>
+    public class ListElement
     {
-        private ListElement<T> next;
-        private T value;
+        private ListElement next;
+        private int value;
 
         public ListElement()
         {
             this.SetNext(null);
         }
         
-        public ListElement(T value)
+        public ListElement(int value)
         {
             this.SetNext(null);
             this.value = value;
         }
 
-        public ListElement<T> GetNext()
+        public ListElement GetNext()
         {
             return this.next;
         }
 
-        public void SetNext(ListElement<T> element)
+        public void SetNext(ListElement element)
         {
             this.next = element;
         }
 
-        public void SetValue(T value)
+        public void SetValue(int value)
         {
             this.value = value;
         }
 
-        public T GetValue()
+        public int GetValue()
         {
             return this.value;
         }

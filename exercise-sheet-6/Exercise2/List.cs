@@ -2,11 +2,11 @@ using System;
 
 namespace exercise_sheet_6
 {
-    public class List<T>
+    public class List
     {
 
-        ListElement<T> head;
-        ListElement<T> tail;
+        ListElement head;
+        ListElement tail;
     
         public List()
         {
@@ -15,9 +15,9 @@ namespace exercise_sheet_6
 
         private void Create() {}
 
-        public ListElement<T> Append(T value)
+        public ListElement Append(int value)
         {
-            ListElement<T> element = new ListElement<T>(value);
+            ListElement element = new ListElement(value);
 
             if (head == null)
             {
@@ -33,13 +33,13 @@ namespace exercise_sheet_6
             return element;
         }
 
-        public void Delete(ListElement<int> element)
+        public void Delete(ListElement element)
         {
-            ListElement<T> currentElement = this.head;
+            ListElement currentElement = this.head;
 
             while (currentElement.GetNext() != null)
             {
-                ListElement<T> nextElement = currentElement.GetNext();
+                ListElement nextElement = currentElement.GetNext();
 
                 if (nextElement.Equals(element))
                 {
@@ -50,7 +50,7 @@ namespace exercise_sheet_6
                     }
                     else
                     {
-                        ListElement<T> newNextElement = nextElement.GetNext();
+                        ListElement newNextElement = nextElement.GetNext();
 
                         currentElement.SetNext(newNextElement);
                     }
@@ -62,55 +62,67 @@ namespace exercise_sheet_6
             }
         }
 
-        public void QuickSort(ListElement<T> start, ListElement<T> end)
+        public void QuickSort(List a, ListElement first, ListElement last)
         {
-            if (start != null && start.Equals(end))
+            if (first == last)
                 return;
 
-            ListElement<T> pivotPrev = ParitionLast(start, end);
-            QuickSort(start, pivotPrev);
+            ListElement pivotPrev = PartitionLast(first, last);
+            QuickSort(a, first, pivotPrev);
 
-            if (pivotPrev != null && pivotPrev.Equals(start))
-                QuickSort(pivotPrev.GetNext(), end);
-            else if (pivotPrev != null && pivotPrev.GetNext() != null)
-                QuickSort(pivotPrev.GetNext().GetNext(), end);
+
+            if (pivotPrev != null && pivotPrev.Equals(first))
+                QuickSort(a, pivotPrev.GetNext(), last);
+            else if (pivotPrev !=  null && pivotPrev.GetNext() != null)
+                QuickSort(a, pivotPrev.GetNext().GetNext(), last);
         }
 
-        private ListElement<T> ParitionLast(ListElement<T> start, ListElement<T> end)
+        private ListElement PartitionLast(ListElement start, ListElement end)
         {
             if (start == end || start == null || end == null)
                 return start;
 
-            ListElement<T> pivotPrev = start;
-            ListElement<T> curr = start;
-            T pivot = end.GetValue();
+            ListElement pivotPrev = start;
+            ListElement curr = start;
+    
+            int pivot = end.GetValue();
 
-            T tmp;
+            int temp;
 
-            while (start != end)
+            while (!start.Equals(end))
             {
-                if (Convert.ToInt32(start.GetValue()) < Convert.ToInt32(pivot))
+                if (start.GetValue() < pivot)
                 {
                     pivotPrev = curr;
-                    tmp = curr.GetValue();
+                    temp = curr.GetValue();
                     curr.SetValue(start.GetValue());
-                    start.SetValue(tmp);
+                    start.SetValue(temp);
                     curr = curr.GetNext();
                 }
 
                 start = start.GetNext();
             }
 
-            tmp = curr.GetValue();
+            temp = curr.GetValue();
             curr.SetValue(pivot);
-            end.SetValue(tmp);
+            end.SetValue(temp);
 
             return pivotPrev;
         }
 
-        public ListElement<T> Search(ListElement<T> element)
+        public ListElement getTail()
         {
-            ListElement<T> currentElement = this.head;
+            return this.tail;
+        }
+
+        public ListElement getHead()
+        {
+            return this.head;
+        }
+
+        public ListElement Search(ListElement element)
+        {
+            ListElement currentElement = this.head;
 
             while (currentElement != null)
             {
@@ -125,7 +137,7 @@ namespace exercise_sheet_6
 
         public void Print()
         {
-            ListElement<T> currentElement = this.head;
+            ListElement currentElement = this.head;
 
             Console.Write("\n");
 

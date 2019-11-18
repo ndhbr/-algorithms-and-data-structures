@@ -6,17 +6,17 @@ namespace exercise_sheet_6
     {
         static void Main(string[] args)
         {
-            // List<Int32> list = new List<Int32>();
-            // ListElement<Int32> first = list.Append(3);
-            // ListElement<Int32> element = list.Append(-1);
-            // list.Append(22);
-            // list.Append(8);
-            // list.Append(-3);
-            // ListElement<Int32> last = list.Append(2);
-            // list.Print();
+            List list = new List();
+            ListElement first = list.Append(3);
+            ListElement element = list.Append(-1);
+            list.Append(22);
+            list.Append(8);
+            list.Append(-3);
+            ListElement last = list.Append(2);
+            list.Print();
             // list.Delete(element);
-            // list.QuickSort(first, last);
-            // list.Print();
+            list.QuickSort(list, list.getHead(), list.getTail());
+            list.Print();
 
             // Ring r = new Ring();
 
@@ -32,7 +32,7 @@ namespace exercise_sheet_6
             // }
 
             // r.Print();
-            Exercise1 ex1 = new Exercise1();
+            // Exercise1 ex1 = new Exercise1();
         }
     }
 }
