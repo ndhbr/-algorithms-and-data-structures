@@ -11,6 +11,14 @@ namespace Exercise1
             wurzel = null;
         }
 
+        public void PreorderReadTree(int[] a)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                Insert(a[i]);
+            }
+        }
+
         public void Insert(int a)
         {
             BaumElement element = new BaumElement();
@@ -232,7 +240,16 @@ namespace Exercise1
 
         public void PrintInOrder()
         {
+            Console.Write("Inorder: ");
             PrintInOrder(wurzel);
+            Console.WriteLine();
+        }
+
+        public void PrintPreOrder()
+        {
+            Console.Write("Preorder: ");
+            PrintPreOrder(wurzel);
+            Console.WriteLine();
         }
 
         private void PrintInOrder(BaumElement wurzel)
@@ -242,6 +259,16 @@ namespace Exercise1
                 PrintInOrder(wurzel.left);
                 Console.Write(wurzel.value + " ");
                 PrintInOrder(wurzel.right);
+            }
+        }
+
+        private void PrintPreOrder(BaumElement wurzel)
+        {
+            if (wurzel != null)
+            {
+                Console.Write(wurzel.value + " ");
+                PrintPreOrder(wurzel.left);
+                PrintPreOrder(wurzel.right);
             }
         }
     }
