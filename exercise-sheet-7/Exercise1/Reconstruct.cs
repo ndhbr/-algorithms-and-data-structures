@@ -34,7 +34,7 @@ namespace Exercise1
             tNode.left = buildTree(inOrder, preOrder, inStrt, inIndex - 1); 
             tNode.right = buildTree(inOrder, preOrder, inIndex + 1, inEnd); 
     
-            return tNode; 
+            return tNode;
         } 
     
         public virtual int search(int[] arr, int strt, int end, int value) 

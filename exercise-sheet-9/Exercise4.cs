@@ -46,7 +46,18 @@ namespace exercise_sheet_9
             update = new Node[height+1];
         }
 
-        public void DeInit() {}
+        public void DeInit()
+		{
+			height = 0;
+            maxHeight = 0;
+
+            head = new Node(Int32.MinValue, 0);
+            tail = new Node(Int32.MaxValue, 0);
+
+            head.next[0] = tail;
+
+            update = new Node[height+1];
+		}
 
         public void Print()
         {
