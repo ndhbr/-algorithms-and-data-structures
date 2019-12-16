@@ -6,8 +6,8 @@ namespace exercise_sheet_11
     {
         static void Main(string[] args)
         {
-            // Exercise1 ex1 = new Exercise1();
-            Exercise2 ex2 = new Exercise2();
+            Exercise1 ex1 = new Exercise1();
+            // Exercise2 ex2 = new Exercise2();
         }
     }
 }

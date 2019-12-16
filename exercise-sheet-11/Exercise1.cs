@@ -56,6 +56,8 @@ namespace exercise_sheet_11
         {
             int i;
 
+            Console.Write(index + " ");
+
             time += 1;
             v.firstTime = time;
             v.color = "grau";
@@ -72,7 +74,6 @@ namespace exercise_sheet_11
             v.color = "schwarz";
             time += 1;
             v.lastTime = time;
-            Console.Write(index + " ");
         }
 
         public void BFS()
