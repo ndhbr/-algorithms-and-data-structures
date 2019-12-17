@@ -56,7 +56,10 @@ namespace exercise_sheet_11
         {
             int i;
 
-            Console.Write(index + " ");
+            if (v.color != "weiß")
+                return;
+            
+            Console.Write(Array.IndexOf(knoten, v) + " ");
 
             time += 1;
             v.firstTime = time;
